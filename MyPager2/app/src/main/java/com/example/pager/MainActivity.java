@@ -1,5 +1,8 @@
 package com.example.pager;
 
+import android.os.Bundle;
+import android.widget.Button;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -7,22 +10,18 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ViewPager pager;
-
+    ViewPager viewPager;
+//수정완료!!!
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pager = findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
+        viewPager = findViewById(R.id.pager);
+        viewPager.setOffscreenPageLimit(3);
 
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
 
@@ -35,15 +34,11 @@ public class MainActivity extends AppCompatActivity {
         Fragment3 fragment3 = new Fragment3();
         adapter.addItem(fragment3);
 
-        pager.setAdapter(adapter);
+        viewPager.setAdapter(adapter);
 
         Button button = findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                pager.setCurrentItem(1);
-            }
-        });
+        button.setOnClickListener((click) -> viewPager.setCurrentItem(1));
+
 
     }
     class MyPagerAdapter extends FragmentStatePagerAdapter {
