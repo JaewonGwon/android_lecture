@@ -14,16 +14,15 @@ import android.widget.Button;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    ViewPager pager;
-    //code review test
-
+    ViewPager viewPager;
+//수정완료!!!
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        pager = findViewById(R.id.pager);
-        pager.setOffscreenPageLimit(3);
+        viewPager = findViewById(R.id.pager);
+        viewPager.setOffscreenPageLimit(3);
 
         MyPagerAdapter adapter = new MyPagerAdapter(getSupportFragmentManager());
 
@@ -36,13 +35,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment3 fragment3 = new Fragment3();
         adapter.addItem(fragment3);
 
-        pager.setAdapter(adapter);
+        viewPager.setAdapter(adapter);
 
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                pager.setCurrentItem(1);
+                viewPager.setCurrentItem(1);
             }
         });
 
