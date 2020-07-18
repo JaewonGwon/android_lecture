@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager pager;
+    //code review test
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
